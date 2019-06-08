@@ -58,7 +58,7 @@
         FB.api("/me", function(response) {
           console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
-            "Thanks for logging in, " + response.name + "!";
+            "You are logged in as " + response.name + "!";
         });
       }
     </script>
@@ -77,6 +77,7 @@
       </div>
       <div class="overlay-text-small">
         <form id="users-score-submit" class="score-submit" action="/">
+          <p id="status" style="font-size: 0.4em; text-align: center"></p>
           <button type="submit" href="https">Submit Score</button>
           <fb:login-button
             class="fb-login-button"
@@ -91,10 +92,6 @@
           </fb:login-button>
           <a>Leaderboard</a>
         </form>
-        <p style="font-size: 0.4em; text-align: end">
-          Leaderboard coming soon but you can submit your score
-        </p>
-        <p id="status" style="font-size: 0.4em; text-align: end"></p>
       </div>
     </div>
     <div class="game-container">
