@@ -157,42 +157,43 @@ function ready() {
       game.flipCard(card);
     });
   });
+
+  // Listen to form submit
+  document
+    .getElementById("users-score-submit")
+    .addEventListener("submit", submitForm);
+
+  // Submit form
+  function submitForm(e) {
+    e.preventDefault();
+
+    // Get values
+    var userName = getInputVal("name");
+    var userScore = score.innerText;
+
+    // Save message
+    saveMessage(userName, userScore);
+  }
+
+  // Function to get form values
+  function getInputVal(id) {
+    return document.getElementById(id).value;
+  }
+
+  // Save message to firebase
+  function saveMessage(userName, userScore) {
+    var newScoreRef = scoresRef.push();
+    newScoreRef.set({
+      Name: userName,
+      Score: userScore
+    });
+    document.getElementById("victory-text").classList.remove("visible");
+    game.startGame();
+  }
 }
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", ready());
 } else {
   ready();
-}
-
-// Listen to form submit
-document
-  .getElementById("users-score-submit")
-  .addEventListener("submit", submitForm);
-
-// Submit form
-function submitForm(e) {
-  e.preventDefault();
-
-  // Get values
-  var userName = getInputVal("name");
-  var userScore = score.innerText;
-
-  // Save message
-  saveMessage(userName, userScore);
-}
-
-// Function to get form values
-function getInputVal(id) {
-  return document.getElementById(id).value;
-}
-
-// Save message to firebase
-function saveMessage(userName, userScore) {
-  var newScoreRef = scoresRef.push();
-  newScoreRef.set({
-    Name: userName,
-    Score: userScore
-  });
-  game.startGame();
 }
