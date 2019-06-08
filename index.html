@@ -6,27 +6,40 @@
       rel="stylesheet"
     />
     <link href="styles.css" rel="stylesheet" />
-    <script src="script.js" async></script>
     <title>Memory game</title>
   </head>
 
   <body>
     <div class="overlay-text visible">
       Click to Start
-      <p class="overlay-text-sub">(This game has sound)</p>
+      <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
     <div id="game-over-text" class="overlay-text">
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text">
+    <div id="victory-text" class="overlay-text-noclick">
       VICTORY
-      <span class="overlay-text-small">Click to Restart</span>
+      <div class="overlay-text-small">
+        You Scored <span id="score">50</span> Points!
+      </div>
+      <div class="overlay-text-small">
+        <form
+          id="users-score-submit"
+          class="score-submit"
+          action="http://google.com"
+          target="blank"
+        >
+          <input type="text" placeholder="Your name" id="name" />
+          <button type="submit" href="https">Submit Score</button>
+          <a href="http://google.com">Leaderboard</a>
+        </form>
+      </div>
     </div>
     <div class="game-container">
       <div class="game-info-container">
-        <div class="game-info">Time <span id="time-remaining">30</span></div>
-        <div class="game-info">Flips <span id="flips">22</span></div>
+        <div class="game-info">Time <span id="time-remaining">25</span></div>
+        <div class="game-info">Flips <span id="flips">0</span></div>
       </div>
       <div class="card">
         <div class="card-back card-face">
@@ -125,5 +138,9 @@
         </div>
       </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <script src="script.js" async></script>
   </body>
 </html>

@@ -1,3 +1,19 @@
+// Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAHgNkXP4_FPSMCv13sJTYVTb2_e7CVHAw",
+  authDomain: "memory-game-ea563.firebaseapp.com",
+  databaseURL: "https://memory-game-ea563.firebaseio.com",
+  projectId: "memory-game-ea563",
+  storageBucket: "memory-game-ea563.appspot.com",
+  messagingSenderId: "511905861263",
+  appId: "1:511905861263:web:7a7c63b4d13266e9"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Reference messages collection
+var scoresRef = firebase.database().ref("scores");
+
 class AudioController {
   constructor() {
     this.flipSound = new Audio("Assets/Audio/flip.wav");
@@ -26,12 +42,14 @@ class MixOrMatch {
     this.timeRemaining = totalTime;
     this.timer = document.getElementById("time-remaining");
     this.ticker = document.getElementById("flips");
+    this.score = document.getElementById("score");
     this.audioController = new AudioController();
   }
   startGame() {
     this.cardToCheck = null;
-    this.totalClicks = 22;
+    this.totalClicks = 0;
     this.timeRemaining = this.totalTime;
+    this.counter = 0;
     this.matchedCards = [];
     this.busy = true;
     setTimeout(() => {
@@ -40,7 +58,7 @@ class MixOrMatch {
       this.busy = false;
     }, 500);
     this.hideCards();
-    this.timer.innerText = this.timeRemaining;
+    this.timer.innerText = this.timeRemaining / 10;
     this.ticker.innerText = this.totalClicks;
   }
   hideCards() {
@@ -52,14 +70,12 @@ class MixOrMatch {
   flipCard(card) {
     if (this.canFlipCard(card)) {
       this.audioController.flip();
-      this.totalClicks--;
+      this.totalClicks++;
       this.ticker.innerText = this.totalClicks;
       card.classList.add("visible");
 
       if (this.cardToCheck) this.checkForCardMatch(card);
       else this.cardToCheck = card;
-
-      if (this.totalClicks === -1) this.gameOver();
     }
   }
   checkForCardMatch(card) {
@@ -91,9 +107,9 @@ class MixOrMatch {
   startCountDown() {
     return setInterval(() => {
       this.timeRemaining--;
-      this.timer.innerText = this.timeRemaining;
+      this.timer.innerText = this.timeRemaining / 10;
       if (this.timeRemaining === 0) this.gameOver();
-    }, 1000);
+    }, 100);
   }
   gameOver() {
     clearInterval(this.countDown);
@@ -104,6 +120,8 @@ class MixOrMatch {
     clearInterval(this.countDown);
     this.audioController.victory();
     document.getElementById("victory-text").classList.add("visible");
+    this.counter = 100 - this.totalClicks + this.timeRemaining;
+    this.score.innerText = this.counter;
   }
 
   shuffleCards() {
@@ -126,7 +144,7 @@ class MixOrMatch {
 function ready() {
   let overlays = Array.from(document.getElementsByClassName("overlay-text"));
   let cards = Array.from(document.getElementsByClassName("card"));
-  let game = new MixOrMatch(30, cards);
+  let game = new MixOrMatch(250, cards);
 
   overlays.forEach(overlay => {
     overlay.addEventListener("click", () => {
@@ -145,4 +163,35 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", ready());
 } else {
   ready();
+}
+
+// Listen to form submit
+document
+  .getElementById("users-score-submit")
+  .addEventListener("submit", submitForm);
+
+// Submit form
+function submitForm(e) {
+  e.preventDefault();
+
+  // Get values
+  var userName = getInputVal("name");
+  var userScore = score.innerText;
+
+  // Save message
+  saveMessage(userName, userScore);
+}
+
+// Function to get form values
+function getInputVal(id) {
+  return document.getElementById(id).value;
+}
+
+// Save message to firebase
+function saveMessage(userName, userScore) {
+  var newScoreRef = scoresRef.push();
+  newScoreRef.set({
+    Name: userName,
+    Score: userScore
+  });
 }

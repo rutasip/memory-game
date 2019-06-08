@@ -74,8 +74,17 @@ body {
   color: #db8979;
 }
 
-.overlay-text-sub {
-  font-size: 50%;
+.overlay-text-noclick {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: #db8979;
 }
 
 .overlay-text-small {
@@ -83,6 +92,12 @@ body {
 }
 
 .overlay-text.visible {
+  display: flex;
+  flex-direction: column;
+  animation: overlay-grow 500ms forwards;
+}
+
+.overlay-text-noclick.visible {
   display: flex;
   flex-direction: column;
   animation: overlay-grow 500ms forwards;
@@ -96,19 +111,6 @@ body {
   to {
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 10em;
-  }
-}
-
-@keyframes dance {
-  0%,
-  100% {
-    transform: rotate(0);
-  }
-  25% {
-    transform: rotate(-30deg);
-  }
-  75% {
-    transform: rotate(30deg);
   }
 }
 
@@ -152,5 +154,92 @@ body {
   .game-info-container {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* score submit */
+
+.score-submit {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.score-submit input {
+  vertical-align: middle;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #79dbb9;
+  font-size: 0.3em;
+  color: #db8979;
+  outline: none;
+  margin: 0px 5px;
+}
+
+.score-submit input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #db8979;
+}
+
+.score-submit input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #db8979;
+}
+
+.score-submit input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #db8979;
+}
+
+.score-submit button {
+  padding: 10px 20px;
+  background-color: rgba(121, 219, 185, 0.35);
+  border: 1px solid #79dbb9;
+  color: #db8979;
+  text-transform: uppercase;
+  font-size: 0.3em;
+  cursor: pointer;
+  margin: 0px 5px;
+}
+
+.score-submit a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: rgba(121, 219, 185, 0.35);
+  border: 1px solid #79dbb9;
+  color: #db8979;
+  text-transform: uppercase;
+  font-size: 0.3em;
+  cursor: pointer;
+  margin: 0px 5px;
+}
+
+.score-submit input:focus {
+  border: 1px solid #5cb3da;
+}
+
+.score-submit button:hover {
+  border: 1px solid #5cb3da;
+}
+
+.score-submit a:hover {
+  border: 1px solid #5cb3da;
+}
+
+@media (max-width: 800px) {
+  .score-submit input,
+  .score-submit button,
+  .score-submit a {
+    margin: 10px 0 10px 0;
+  }
+
+  .score-submit a {
+    text-align: center;
+  }
+
+  .score-submit {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
