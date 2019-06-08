@@ -79,17 +79,19 @@
         <form id="users-score-submit" class="score-submit" action="/">
           <p id="status" style="font-size: 0.4em; text-align: center"></p>
           <button type="submit" href="https">Submit Score</button>
-          <fb:login-button
-            class="fb-login-button"
-            data-width=""
-            data-size="large"
-            data-button-type="login_with"
-            data-auto-logout-link="true"
-            data-use-continue-as="true"
-            scope="public_profile,email"
-            onlogin="checkLoginState();"
-          >
-          </fb:login-button>
+          <div class="fb">
+            <fb:login-button
+              class="fb-login-button"
+              data-width=""
+              data-size="large"
+              data-button-type="login_with"
+              data-auto-logout-link="true"
+              data-use-continue-as="true"
+              scope="public_profile,email"
+              onlogin="checkLoginState();"
+            >
+            </fb:login-button>
+          </div>
           <a>Leaderboard</a>
         </form>
       </div>
