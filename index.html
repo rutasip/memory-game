@@ -62,7 +62,7 @@
         });
       }
     </script>
-    <div id="status" class="overlay-text">
+    <div id="status" class="overlay-text visible">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
@@ -70,28 +70,26 @@
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text-noclick visible">
+    <div id="victory-text" class="overlay-text-noclick">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
       </div>
       <div class="overlay-text-small">
         <form id="users-score-submit" class="score-submit" action="/">
-          <input type="text" placeholder="Your name" id="name" />
-          <button type="submit" href="https">Submit Score</button>
-          <div
-            class="fb-login-button"
-            data-width=""
-            data-size="large"
-            data-button-type="continue_with"
-            data-auto-logout-link="false"
-            data-use-continue-as="false"
-          ></div>
-          <fb:login-button
-            scope="public_profile,email"
-            onlogin="checkLoginState();"
-          >
-          </fb:login-button>
+          <div type="submit">
+            <fb:login-button
+              class="fb-login-button"
+              data-width=""
+              data-size="large"
+              data-button-type="continue_with"
+              data-auto-logout-link="true"
+              data-use-continue-as="false"
+              scope="public_profile,email"
+              onlogin="checkLoginState();"
+            >
+            </fb:login-button>
+          </div>
           <a>Leaderboard</a>
         </form>
         <p style="font-size: 0.4em; text-align: end">

@@ -168,16 +168,14 @@ function ready() {
     e.preventDefault();
 
     // Get values
-    var userName = getInputVal("name");
+    var userName = response.name;
     var userScore = score.innerText;
+
+    console.log(userName);
+    console.log(userScore);
 
     // Save message
     saveMessage(userName, userScore);
-  }
-
-  // Function to get form values
-  function getInputVal(id) {
-    return document.getElementById(id).value;
   }
 
   // Save message to firebase
