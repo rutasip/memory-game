@@ -194,4 +194,5 @@ function saveMessage(userName, userScore) {
     Name: userName,
     Score: userScore
   });
+  game.startGame();
 }
