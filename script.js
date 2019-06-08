@@ -168,7 +168,13 @@ function ready() {
     e.preventDefault();
 
     // Get values
-    var userName = response.name;
+    function testAPI() {
+      FB.api("/me", function(response) {
+        return response.name;
+      });
+      return response.name;
+    }
+    var userName = testAPI();
     var userScore = score.innerText;
 
     console.log(userName);
