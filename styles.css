@@ -160,9 +160,6 @@ body {
 /* score submit */
 
 .score-submit {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
   padding-top: 0.5em;
 }
 
