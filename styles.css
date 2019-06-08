@@ -163,7 +163,6 @@ body {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-end;
-  padding-top: 0.5em;
 }
 
 .score-submit button {
