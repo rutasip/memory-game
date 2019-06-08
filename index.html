@@ -62,9 +62,6 @@
         });
       }
     </script>
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
-
     <div id="status" class="overlay-text">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
@@ -90,6 +87,11 @@
             data-auto-logout-link="false"
             data-use-continue-as="false"
           ></div>
+          <fb:login-button
+            scope="public_profile,email"
+            onlogin="checkLoginState();"
+          >
+          </fb:login-button>
           <a>Leaderboard</a>
         </form>
         <p style="font-size: 0.4em; text-align: end">
