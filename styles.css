@@ -170,7 +170,6 @@ body {
 }
 
 .score-submit button {
-  display: none;
   padding: 10px 20px;
   background-color: rgba(121, 219, 185, 0.35);
   border: 1.5px solid #79dbb9;
