@@ -63,7 +63,7 @@
         });
       }
     </script>
-    <div class="overlay-text visible">
+    <div class="overlay-text">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
@@ -71,7 +71,7 @@
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text-noclick">
+    <div id="victory-text" class="overlay-text-noclick visible">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
@@ -87,7 +87,7 @@
               data-width=""
               data-size="large"
               data-button-type="login_with"
-              data-auto-logout-link="true"
+              data-auto-logout-link="false"
               data-use-continue-as="true"
               scope="public_profile,email"
               onlogin="checkLoginState();"
