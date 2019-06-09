@@ -60,9 +60,10 @@
           document.getElementById("status").innerHTML =
             "You are logged in as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
-          document
-            .getElementById("users-score-submit")
-            .button.classList.remove("hidden");
+          console.log(document.getElementById("users-score-submit"));
+          // document
+          //   .getElementById("users-score-submit")
+          //   .button.classList.remove("hidden");
         });
       }
     </script>
