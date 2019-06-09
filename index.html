@@ -65,7 +65,11 @@
       function testAPI() {
         console.log("Welcome!  Fetching your information.... ");
         FB.api("/me", function(response) {
-          userName = response.name.split(" ")[0];
+          userName =
+            response.name.split(" ")[0] +
+            " " +
+            response.name.split(" ")[1].split("")[1] +
+            ".";
           console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
             "Do you want to submit your score as " + userName + "?";
