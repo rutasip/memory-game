@@ -60,10 +60,13 @@
           document.getElementById("status").innerHTML =
             "You are logged in as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
+          document
+            .getElementById("users-score-submit")
+            .button.classList.remove("hidden");
         });
       }
     </script>
-    <div class="overlay-text visible">
+    <div class="overlay-text">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
@@ -71,7 +74,7 @@
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text-noclick">
+    <div id="victory-text" class="overlay-text-noclick visible">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
@@ -80,7 +83,9 @@
         <p id="status" style="font-size: 0.4em; text-align: center"></p>
         <form id="users-score-submit" class="score-submit" action="/">
           <p id="user-name">N/A</p>
-          <button type="submit" href="https">Submit Score</button>
+          <button class="hidden" type="submit" href="https">
+            Submit Score
+          </button>
           <div class="fb">
             <fb:login-button
               class="fb-login-button"

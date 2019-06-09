@@ -180,6 +180,10 @@ body {
   margin: 0px 5px;
 }
 
+.hidden {
+  display: none;
+}
+
 .score-submit div {
   margin: 0px 5px;
 }
