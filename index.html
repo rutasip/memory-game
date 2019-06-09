@@ -60,7 +60,7 @@
           document.getElementById("status").innerHTML =
             "You are logged in as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
-          document.getElementsByClassName("submit").classList.add("visible");
+          document.getElementsByClassName("submit")[0].classList.add("visible");
         });
       }
     </script>
