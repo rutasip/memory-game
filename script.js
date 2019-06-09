@@ -167,7 +167,7 @@ function ready() {
       .database()
       .ref("scores")
       .orderByChild("Score")
-      .limitToLast(3);
+      .limitToLast(30);
     leaderboardRef.once("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
         var childKey = childSnapshot.key;
