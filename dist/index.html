@@ -6,27 +6,100 @@
       rel="stylesheet"
     />
     <link href="styles.css" rel="stylesheet" />
-    <script src="script.js" async></script>
     <title>Memory game</title>
   </head>
 
   <body>
-    <div class="overlay-text visible">
+    <script>
+      function statusChangeCallback(response) {
+        console.log("statusChangeCallback");
+        console.log(response);
+        if (response.status === "connected") {
+          testAPI();
+        } else {
+          document.getElementById("status").innerHTML =
+            "Please log " + "into this app.";
+        }
+      }
+
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: "611662999326137",
+          cookie: true,
+          xfbml: true,
+          version: "v3.3"
+        });
+
+        FB.AppEvents.logPageView();
+
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+
+      function testAPI() {
+        console.log("Welcome!  Fetching your information.... ");
+        FB.api("/me", function(response) {
+          console.log("Successful login for: " + response.name);
+          document.getElementById("status").innerHTML =
+            "You are logged in as " + response.name + "!";
+        });
+      }
+    </script>
+    <div class="overlay-text">
       Click to Start
-      <p class="overlay-text-sub">(This game has sound)</p>
+      <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
     <div id="game-over-text" class="overlay-text">
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text">
+    <div id="victory-text" class="overlay-text-noclick visible">
       VICTORY
-      <span class="overlay-text-small">Click to Restart</span>
+      <div class="overlay-text-small">
+        You Scored <span id="score">0</span> Points!
+      </div>
+      <div class="overlay-text-small">
+        <p id="status" style="font-size: 0.4em; text-align: center"></p>
+        <form id="users-score-submit" class="score-submit" action="/">
+          <button type="submit" href="https">Submit Score</button>
+          <div class="fb">
+            <fb:login-button
+              class="fb-login-button"
+              data-width=""
+              data-size="large"
+              data-button-type="login_with"
+              data-auto-logout-link="true"
+              data-use-continue-as="true"
+              scope="public_profile,email"
+              onlogin="checkLoginState();"
+            >
+            </fb:login-button>
+          </div>
+          <a>Leaderboard</a>
+        </form>
+      </div>
     </div>
     <div class="game-container">
       <div class="game-info-container">
         <div class="game-info">Time <span id="time-remaining">30</span></div>
-        <div class="game-info">Flips <span id="flips">22</span></div>
+        <div class="game-info">Flips <span id="flips">0</span></div>
       </div>
       <div class="card">
         <div class="card-back card-face">
@@ -125,5 +198,15 @@
         </div>
       </div>
     </div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=368578297119637"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <script src="script.js" async></script>
   </body>
 </html>
