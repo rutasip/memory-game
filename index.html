@@ -60,11 +60,10 @@
           document.getElementById("status").innerHTML =
             "You are logged in as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
-          document.getElementsByClassName("submit")[0].classList.add("visible");
         });
       }
     </script>
-    <div class="overlay-text">
+    <div class="overlay-text visible">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
@@ -72,7 +71,7 @@
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text-noclick visible">
+    <div id="victory-text" class="overlay-text-noclick">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
@@ -88,7 +87,7 @@
               data-width=""
               data-size="large"
               data-button-type="login_with"
-              data-auto-logout-link="false"
+              data-auto-logout-link="true"
               data-use-continue-as="true"
               scope="public_profile,email"
               onlogin="checkLoginState();"
