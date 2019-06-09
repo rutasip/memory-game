@@ -190,7 +190,7 @@ function ready() {
     e.preventDefault();
 
     // Get values
-    var userName = document.getElementById("user-name").innerText;
+    // var userName = userName;
     var userScore = Number(score.innerText);
 
     console.log(userName);
