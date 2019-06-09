@@ -18,7 +18,7 @@
           testAPI();
         } else {
           document.getElementById("status").innerHTML =
-            "Please log " + "into this app.";
+            "Please log in to submit your score";
         }
       }
 
@@ -58,7 +58,7 @@
         FB.api("/me", function(response) {
           console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
-            "You are logged in as " + response.name + "!";
+            "You can now submit your score as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
           document
             .getElementById("users-score-submit")
