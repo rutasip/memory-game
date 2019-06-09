@@ -172,7 +172,9 @@ function ready() {
       snapshot.forEach(function(childSnapshot) {
         var childKey = childSnapshot.key;
         var childData = childSnapshot.val();
-        console.log(childData);
+        console.log(
+          childSnapshot.val().Name + " : " + childSnapshot.val().Score
+        );
       });
     });
     console.log("Clicked!");
