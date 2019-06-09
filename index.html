@@ -59,6 +59,7 @@
           console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
             "You are logged in as " + response.name + "!";
+          document.getElementByID("user-name").innerHTML = response.name;
         });
       }
     </script>
@@ -78,6 +79,7 @@
       <div class="overlay-text-small">
         <p id="status" style="font-size: 0.4em; text-align: center"></p>
         <form id="users-score-submit" class="score-submit" action="/">
+          <p id="user-name">N/A</p>
           <button type="submit" href="https">Submit Score</button>
           <div class="fb">
             <fb:login-button
