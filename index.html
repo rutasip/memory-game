@@ -60,7 +60,11 @@
           document.getElementById("status").innerHTML =
             "You are logged in as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
-          console.log(document.getElementById("users-score-submit"));
+          console.log(
+            document
+              .getElementById("users-score-submit")
+              .getElementsByTagName("button")[0]
+          );
           // document
           //   .getElementById("users-score-submit")
           //   .button.classList.remove("hidden");
