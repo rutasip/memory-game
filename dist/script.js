@@ -168,7 +168,7 @@ function ready() {
     e.preventDefault();
 
     // Get values
-    var userName = response.name;
+    var userName = document.getElementById("user-name").innerText;
     var userScore = score.innerText;
 
     console.log(userName);

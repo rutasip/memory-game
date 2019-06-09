@@ -159,6 +159,10 @@ body {
 
 /* score submit */
 
+#user-name {
+  display: none;
+}
+
 .score-submit {
   display: flex;
   flex-flow: row wrap;
@@ -174,6 +178,10 @@ body {
   font-size: 0.3em;
   cursor: pointer;
   margin: 0px 5px;
+}
+
+.hidden {
+  display: none;
 }
 
 .score-submit div {
