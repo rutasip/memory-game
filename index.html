@@ -11,6 +11,7 @@
 
   <body>
     <script>
+      const userName = "N/A";
       function statusChangeCallback(response) {
         console.log("statusChangeCallback");
         console.log(response);
@@ -64,9 +65,10 @@
       function testAPI() {
         console.log("Welcome!  Fetching your information.... ");
         FB.api("/me", function(response) {
+          userName = response.name.split(" ")[0];
           console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
-            "Submit your score as " + response.name + "!";
+            "Do you want to submit your score as " + userName + "?";
           document.getElementById("user-name").innerHTML = response.name;
           document
             .getElementById("users-score-submit")
@@ -79,7 +81,7 @@
         });
       }
     </script>
-    <div class="overlay-text visible">
+    <div class="overlay-text">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
@@ -87,7 +89,7 @@
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text-noclick">
+    <div id="victory-text" class="overlay-text-noclick visible">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
