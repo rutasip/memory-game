@@ -18,7 +18,15 @@
           testAPI();
         } else {
           document.getElementById("status").innerHTML =
-            "Please log in to submit your score";
+            "Please log in to submit your score.";
+          document
+            .getElementById("users-score-submit")
+            .getElementsByTagName("button")[0]
+            .classList.add("hidden");
+          document
+            .getElementById("users-score-submit")
+            .getElementsByClassName("fb")[0]
+            .classList.remove("hidden");
         }
       }
 
@@ -58,16 +66,20 @@
         FB.api("/me", function(response) {
           console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
-            "You can now submit your score as " + response.name + "!";
+            "Submit your score as " + response.name + "!";
           document.getElementById("user-name").innerHTML = response.name;
           document
             .getElementById("users-score-submit")
             .getElementsByTagName("button")[0]
             .classList.remove("hidden");
+          document
+            .getElementById("users-score-submit")
+            .getElementsByClassName("fb")[0]
+            .classList.add("hidden");
         });
       }
     </script>
-    <div class="overlay-text visible">
+    <div class="overlay-text">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
     </div>
@@ -75,7 +87,7 @@
       GAME OVER
       <span class="overlay-text-small">Click to Restart</span>
     </div>
-    <div id="victory-text" class="overlay-text-noclick">
+    <div id="victory-text" class="overlay-text-noclick visible">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
