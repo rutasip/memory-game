@@ -170,8 +170,6 @@ function ready() {
       .limitToLast(15);
     leaderboardRef.once("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val();
         console.log(
           childSnapshot.val().Name + " : " + childSnapshot.val().Score
         );
