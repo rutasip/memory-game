@@ -204,7 +204,7 @@ function ready() {
       Score: userScore
     });
     document.getElementById("victory-text").classList.remove("visible");
-    document.getElementById("overlay-text").classList.add("visible");
+    document.getElementById("start-text").classList.add("visible");
   }
 }
 
