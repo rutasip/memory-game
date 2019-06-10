@@ -11,7 +11,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Reference messages collection
+// Reference scores collection
 var scoresRef = firebase.database().ref("scores");
 
 class AudioController {
@@ -158,6 +158,27 @@ function ready() {
     });
   });
 
+  // Gets data from database
+  var el = document.getElementById("leaderboard");
+  el.addEventListener("click", getData);
+
+  function getData() {
+    const leaderboardRef = firebase
+      .database()
+      .ref("scores")
+      .orderByChild("Score")
+      .limitToLast(15);
+    leaderboardRef.once("value", function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var childKey = childSnapshot.key;
+        var childData = childSnapshot.val();
+        console.log(
+          childSnapshot.val().Name + " : " + childSnapshot.val().Score
+        );
+      });
+    });
+  }
+
   // Listen to form submit
   document
     .getElementById("users-score-submit")
@@ -168,17 +189,14 @@ function ready() {
     e.preventDefault();
 
     // Get values
-    var userName = document.getElementById("user-name").innerText;
-    var userScore = score.innerText;
+    // userName is a global var
+    var userScore = Number(score.innerText);
 
-    console.log(userName);
-    console.log(userScore);
-
-    // Save message
+    // Save score
     saveMessage(userName, userScore);
   }
 
-  // Save message to firebase
+  // Save score to firebase
   function saveMessage(userName, userScore) {
     var newScoreRef = scoresRef.push();
     newScoreRef.set({
@@ -186,7 +204,7 @@ function ready() {
       Score: userScore
     });
     document.getElementById("victory-text").classList.remove("visible");
-    game.startGame();
+    document.getElementById("overlay-text").classList.add("visible");
   }
 }
 
