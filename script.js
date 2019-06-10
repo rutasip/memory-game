@@ -177,7 +177,6 @@ function ready() {
         );
       });
     });
-    console.log("Clicked!");
   }
 
   // Listen to form submit
@@ -190,11 +189,8 @@ function ready() {
     e.preventDefault();
 
     // Get values
-    // var userName = userName;
+    // userName is a global var
     var userScore = Number(score.innerText);
-
-    console.log(userName);
-    console.log(userScore);
 
     // Save score
     saveMessage(userName, userScore);
@@ -208,7 +204,7 @@ function ready() {
       Score: userScore
     });
     document.getElementById("victory-text").classList.remove("visible");
-    game.startGame();
+    document.getElementById("overlay-text").classList.add("visible");
   }
 }
 

@@ -158,11 +158,6 @@ body {
 }
 
 /* score submit */
-
-#user-name {
-  display: none;
-}
-
 .score-submit {
   display: flex;
   flex-flow: row wrap;

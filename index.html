@@ -63,17 +63,16 @@
       })(document, "script", "facebook-jssdk");
 
       function testAPI() {
-        console.log("Welcome!  Fetching your information.... ");
+        // console.log("Welcome!  Fetching your information.... ");
         FB.api("/me", function(response) {
           userName =
             response.name.split(" ")[0] +
             " " +
             response.name.split(" ")[1].split("")[0] +
             ".";
-          console.log("Successful login for: " + response.name);
+          // console.log("Successful login for: " + response.name);
           document.getElementById("status").innerHTML =
             "Do you want to submit your score as " + userName + "?";
-          // document.getElementById("user-name").innerHTML = response.name;
           document
             .getElementById("users-score-submit")
             .getElementsByTagName("button")[0]
@@ -101,7 +100,6 @@
       <div class="overlay-text-small">
         <p id="status" style="font-size: 0.4em; text-align: center"></p>
         <form id="users-score-submit" class="score-submit" action="/">
-          <p id="user-name">N/A</p>
           <button class="hidden" type="submit" href="https">
             Submit Score
           </button>
