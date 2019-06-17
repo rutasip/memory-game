@@ -20,5 +20,5 @@ Extra stuff:
 - Calculates user's score by doing some magic with the remaining time and total flips.
 - User can only submit their score if they are logged into Facebook. This way I secure the app from invalid name inputs.
 - If not logged in, they will be asked to log into Facebook.
-- User submits the score along with their full name.
+- User submits the score along with their first name and surname first letter.
 - The data gets sent to Firebase database where I store the scores.

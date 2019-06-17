@@ -163,6 +163,9 @@ function ready() {
   el.addEventListener("click", getData);
 
   function getData() {
+    document.getElementById("victory-text").classList.remove("visible");
+    document.getElementById("leaderboard-text").classList.add("visible");
+    var scoresArr = [];
     const leaderboardRef = firebase
       .database()
       .ref("scores")
@@ -170,10 +173,14 @@ function ready() {
       .limitToLast(15);
     leaderboardRef.once("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val();
-        console.log(
-          childSnapshot.val().Name + " : " + childSnapshot.val().Score
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        scoresArr.push(item);
+      });
+      scoresArr.reverse();
+      scoresArr.forEach(function(item) {
+        $("tbody").append(
+          "<tr><td>" + item["Name"] + "</td><td>" + item["Score"] + "</td></tr>"
         );
       });
     });
@@ -204,7 +211,7 @@ function ready() {
       Score: userScore
     });
     document.getElementById("victory-text").classList.remove("visible");
-    document.getElementById("overlay-text").classList.add("visible");
+    document.getElementById("start-text").classList.add("visible");
   }
 }
 
