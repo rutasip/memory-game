@@ -173,38 +173,17 @@ function ready() {
       .limitToLast(15);
     leaderboardRef.once("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
-        // document.getElementById(
-        //   "user-name"
-        // ).innerText = childSnapshot.val().Name;
-        // document.getElementById(
-        //   "user-score"
-        // ).innerText = childSnapshot.val().Score;
-
-        // document.getElementsByClassName(
-        //   "user-name"
-        // )[1].innerHTML = childSnapshot.val().Name;
-        // document.getElementsByClassName(
-        //   "user-score"
-        // )[1].innerHTML = childSnapshot.val().Score;
-
-        // console.log(
-        //   childSnapshot.val().Name + " : " + childSnapshot.val().Score
-        // );
-
         var item = childSnapshot.val();
         item.key = childSnapshot.key;
         scoresArr.push(item);
       });
+      scoresArr.reverse();
+      scoresArr.forEach(function(item) {
+        $("tbody").append(
+          "<tr><td>" + item["Name"] + "</td><td>" + item["Score"] + "</td></tr>"
+        );
+      });
     });
-    console.log(scoresArr);
-    console.log(scoresArr[2]);
-
-    // var userScores = document.getElementById("user-scores");
-    // scoresArr.forEach(function(item) {
-    //   $("tbody").append(
-    //     "<tr><td>" + item["Name"] + "</td><td>" + item["Score"] + "</td></tr>"
-    //   );
-    // });
   }
 
   // Listen to form submit
