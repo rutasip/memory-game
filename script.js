@@ -159,21 +159,21 @@ function ready() {
   });
 
   // Gets data from database
-  var el = document.getElementById("leaderboard");
-  el.addEventListener("click", getData);
+  let leadBtn = document.querySelectorAll(".leaderboard-btn");
+  leadBtn.forEach(el => el.addEventListener("click", getData));
 
   function getData() {
-    document.getElementById("victory-text").classList.remove("visible");
-    document.getElementById("leaderboard-text").classList.add("visible");
-    var scoresArr = [];
+    document.querySelector("#victory-text").classList.remove("visible");
+    document.querySelector("#leaderboard-text").classList.add("visible");
+    let scoresArr = [];
     const leaderboardRef = firebase
       .database()
       .ref("scores")
       .orderByChild("Score")
-      .limitToLast(15);
+      .limitToLast(8);
     leaderboardRef.once("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
-        var item = childSnapshot.val();
+        let item = childSnapshot.val();
         item.key = childSnapshot.key;
         scoresArr.push(item);
       });
@@ -185,6 +185,10 @@ function ready() {
       });
     });
   }
+
+  // Start button
+  let startBtn = document.querySelectorAll(".start-btn");
+  startBtn.addEventListener("click", startGame);
 
   // Listen to form submit
   document

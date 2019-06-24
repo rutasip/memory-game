@@ -9,7 +9,8 @@ html {
 body {
   margin: 0;
   background: radial-gradient(#8cf39c, #56b5e6);
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
 }
 
 .game-info-container {
@@ -114,8 +115,28 @@ body {
   }
 }
 
+.brown-btn {
+  text-decoration: none;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  padding: 6px 16px;
+  min-width: 64px;
+  background-color: #2a1513;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+  color: #db8979;
+  text-transform: uppercase;
+  font-size: 0.4em;
+  cursor: pointer;
+  margin: 0px 5px;
+  border-radius: 12px;
+}
+
 /* Leaderboard */
-.leaderboard-text {
+#leaderboard-text {
   display: none;
   position: fixed;
   top: 0;
@@ -128,7 +149,7 @@ body {
   color: #db8979;
 }
 
-.leaderboard-text.visible {
+#leaderboard-text.visible {
   display: flex;
   flex-direction: column;
   animation: overlay-grow-leaderboard 500ms forwards;
@@ -147,15 +168,21 @@ body {
 
 table {
   margin: 20px 0;
-  width: 600px;
+  width: 500px;
   border-collapse: collapse;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  line-height: 1.75;
+  background-color: rgba(42, 21, 19, 0.8);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+  border-radius: 12px;
 }
 
 td {
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.2);
   color: #db8979;
 }
 td {
@@ -163,7 +190,7 @@ td {
 }
 
 tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(0, 0, 1, 0.2);
 }
 tbody td {
   position: relative;
@@ -202,15 +229,15 @@ tbody td:hover:before {
   width: 100%;
   height: 70%;
   transform: scale(0.7);
-  transform: translateY(-leaderboard-text10px);
-  transition: transform 1leaderboard-text00ms ease-in-out;
+  transform: translateY(-10px);
+  transition: transform 100ms ease-in-out;
 }
-leaderboard-text leaderboard-text .card-back:hover .github leaderboard-text {
-  transform: translateY(0leaderboard-text);
+.card-back:hover .github {
+  transform: translateY(0);
 }
-leaderboard-text leaderboard-text @media (max-width: 600px)leaderboard-text {
+@media (max-width: 600px) {
   .game-container {
-    leaderboard-textgrid-template-columnsleaderboard-text: repeat(2, auto);
+    grid-template-columns: repeat(2, auto);
   }
 
   .game-info-container {
@@ -224,12 +251,13 @@ leaderboard-text leaderboard-text @media (max-width: 600px)leaderboard-text {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-end;
+  margin: 0.5em 0;
 }
 
 .score-submit button {
   padding: 10px 20px;
   background-color: rgba(121, 219, 185, 0.35);
-  border: 1.5px solid #79dbb9;
+  border: 1px solid #79dbb9;
   color: #db8979;
   text-transform: uppercase;
   font-size: 0.3em;
@@ -245,7 +273,7 @@ leaderboard-text leaderboard-text @media (max-width: 600px)leaderboard-text {
   margin: 0px 5px;
 }
 
-.score-submit a {
+.score-submit-btn {
   text-decoration: none;
   padding: 10px 20px;
   background-color: rgba(121, 219, 185, 0.35);
@@ -261,17 +289,17 @@ leaderboard-text leaderboard-text @media (max-width: 600px)leaderboard-text {
   border: 1px solid #5cb3da;
 }
 
-.score-submit a:hover {
-  border: 1px solid #5cb3da;
+.score-submit-btn:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 800px) {
   .score-submit button,
-  .score-submit a {
+  .score-submit-btn {
     margin: 10px 0 10px 0;
   }
 
-  .score-submit a {
+  .score-submit-btn {
     text-align: center;
   }
 

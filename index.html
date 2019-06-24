@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       rel="stylesheet"
     />
     <link href="styles.css" rel="stylesheet" />
@@ -82,15 +82,25 @@
         });
       }
     </script>
-    <div id="start-text" class="overlay-text visible">
+    <div id="start-text" class="overlay-text">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
+      <div class="overlay-text-small">
+        <form class="score-submit">
+          <a class="brown-btn leaderboard-btn">Leaderboard</a>
+        </form>
+      </div>
     </div>
     <div id="game-over-text" class="overlay-text">
-      GAME OVERleaderboard-text
-      <span class="overlay-text-small">Click to Restart</span>
+      GAME OVER
+      <div class="overlay-text-small">
+        <form class="score-submit">
+          <a class="brown-btn start-btn">Try Again</a>
+          <a class="brown-btn leaderboard-btn">Leaderboard</a>
+        </form>
+      </div>
     </div>
-    <div id="victory-text" class="overlay-text-noclick">
+    <div id="victory-text" class="overlay-text visible">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
@@ -98,7 +108,11 @@
       <div class="overlay-text-small">
         <p id="status" style="font-size: 0.4em; text-align: center"></p>
         <form id="users-score-submit" class="score-submit" action="/">
-          <button class="hidden" type="submit" href="https">
+          <button
+            class="score-submit-btn brown-btn hidden"
+            type="submit"
+            href="https"
+          >
             Submit Score
           </button>
           <div class="fb">
@@ -114,11 +128,12 @@
             >
             </fb:login-button>
           </div>
-          <a id="leaderboard">Leaderboard</a>
+          <a class="brown-btn start-btn">Try Again</a>
+          <a class="brown-btn leaderboard-btn">Leaderboard</a>
         </form>
       </div>
     </div>
-    <div id="leaderboard-text" class="leaderboard-text overlay-text-noclick">
+    <div id="leaderboard-text" class="overlay-text">
       LEADERBOARD
       <span class="overlay-text-small container">
         <div class="container">
@@ -127,6 +142,9 @@
           </table>
         </div>
       </span>
+      <form class="score-submit">
+        <a class="brown-btn start-btn">Try Again</a>
+      </form>
     </div>
     <div class="game-container">
       <div class="game-info-container">
@@ -218,7 +236,7 @@
           <img class="github" src="Assets/Images/Github.png" />
         </div>
         <div class="card-front card-face">
-          <img class="card-value" src="Assets/Images/Php.png" />
+          <img class="card-value" src="Assets/Images/Angular.png" />
         </div>
       </div>
       <div class="card">
@@ -226,7 +244,7 @@
           <img class="github" src="Assets/Images/Github.png" />
         </div>
         <div class="card-front card-face">
-          <img class="card-value" src="Assets/Images/Php.png" />
+          <img class="card-value" src="Assets/Images/Angular.png" />
         </div>
       </div>
     </div>
