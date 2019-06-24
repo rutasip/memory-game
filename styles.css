@@ -254,45 +254,10 @@ tbody td:hover:before {
   margin: 0.5em 0;
 }
 
-.score-submit button {
-  padding: 10px 20px;
-  background-color: rgba(121, 219, 185, 0.35);
-  border: 1px solid #79dbb9;
-  color: #db8979;
-  text-transform: uppercase;
-  font-size: 0.3em;
-  cursor: pointer;
-  margin: 0px 5px;
-}
-
 .hidden {
   display: none;
 }
 
 .score-submit div {
   margin: 0px 5px;
-}
-
-.score-submit button:hover {
-  border: 1px solid #5cb3da;
-}
-
-.score-submit-btn:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 800px) {
-  .score-submit button,
-  .score-submit-btn {
-    margin: 10px 0 10px 0;
-  }
-
-  .score-submit-btn {
-    text-align: center;
-  }
-
-  .score-submit {
-    flex-direction: column;
-    align-items: stretch;
-  }
 }
