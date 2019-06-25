@@ -8,6 +8,7 @@ var firebaseConfig = {
   messagingSenderId: "511905861263",
   appId: "1:511905861263:web:7a7c63b4d13266e9"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -158,7 +159,7 @@ function ready() {
     });
   });
 
-  // Gets data from database
+  // Gets highest scores from database once button is clicked
   let leadBtn = document.querySelectorAll(".leaderboard-btn");
   leadBtn.forEach(el => el.addEventListener("click", getData));
 
@@ -170,7 +171,7 @@ function ready() {
       .database()
       .ref("scores")
       .orderByChild("Score")
-      .limitToLast(8);
+      .limitToLast(10);
     leaderboardRef.once("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
         let item = childSnapshot.val();

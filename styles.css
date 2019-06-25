@@ -115,13 +115,19 @@ body {
   }
 }
 
-.brown-btn {
+#status {
+  font-size: 0.4em;
+  text-align: center;
+}
+
+.custom-btn {
   text-decoration: none;
   line-height: 1.75;
   letter-spacing: 0.02857em;
   padding: 6px 16px;
   min-width: 64px;
-  background-color: #2a1513;
+  background-color: rgba(121, 219, 185, 0.35);
+  border: 1px solid #79dbb9;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -135,14 +141,15 @@ body {
   border-radius: 12px;
 }
 
+.custom-btn:hover {
+  border: 1px solid #5cb3da;
+  transform: scale(1.05);
+}
+
 /* Leaderboard */
 #leaderboard-text {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   justify-content: center;
   align-items: center;
   z-index: 100;
@@ -162,7 +169,7 @@ body {
   }
   to {
     background-color: rgba(0, 0, 0, 0.8);
-    font-size: 4em;
+    font-size: 7em;
   }
 }
 
@@ -179,6 +186,7 @@ table {
     border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-weight: 500;
   border-radius: 12px;
+  font-size: 0.6em;
 }
 
 td {

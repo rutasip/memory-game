@@ -82,25 +82,26 @@
         });
       }
     </script>
-    <div id="start-text" class="overlay-text">
+    <div id="start-text" class="overlay-text visible">
       Click to Start
       <span class="overlay-text-small">(This Game Has Sound)</span>
       <div class="overlay-text-small">
         <form class="score-submit">
-          <a class="brown-btn leaderboard-btn">Leaderboard</a>
+          <a class="custom-btn leaderboard-btn">Leaderboard</a>
         </form>
       </div>
     </div>
     <div id="game-over-text" class="overlay-text">
       GAME OVER
+      <span class="overlay-text-small">Click to Restart</span>
       <div class="overlay-text-small">
         <form class="score-submit">
-          <a class="brown-btn start-btn">Try Again</a>
-          <a class="brown-btn leaderboard-btn">Leaderboard</a>
+          <!-- <a class="custom-btn start-btn">Try Again</a> -->
+          <a class="custom-btn leaderboard-btn">Leaderboard</a>
         </form>
       </div>
     </div>
-    <div id="victory-text" class="overlay-text visible">
+    <div id="victory-text" class="overlay-text">
       VICTORY
       <div class="overlay-text-small">
         You Scored <span id="score">0</span> Points!
@@ -108,11 +109,7 @@
       <div class="overlay-text-small">
         <p id="status" style="font-size: 0.4em; text-align: center"></p>
         <form id="users-score-submit" class="score-submit" action="/">
-          <button
-            class="score-submit-btn brown-btn hidden"
-            type="submit"
-            href="https"
-          >
+          <button class="hidden" type="submit" href="https">
             Submit Score
           </button>
           <div class="fb">
@@ -128,13 +125,13 @@
             >
             </fb:login-button>
           </div>
-          <a class="brown-btn start-btn">Try Again</a>
-          <a class="brown-btn leaderboard-btn">Leaderboard</a>
+          <!-- <a class="custom-btn start-btn">Try Again</a> -->
+          <a class="custom-btn leaderboard-btn">Leaderboard</a>
         </form>
       </div>
     </div>
     <div id="leaderboard-text" class="overlay-text">
-      LEADERBOARD
+      Leaderboard
       <span class="overlay-text-small container">
         <div class="container">
           <table>
@@ -142,9 +139,11 @@
           </table>
         </div>
       </span>
-      <form class="score-submit">
-        <a class="brown-btn start-btn">Try Again</a>
-      </form>
+      <!-- <div>Click to Restart</div> -->
+      <!-- <p>Click to Restart</p> -->
+      <!-- <form class="score-submit">
+        <a class="custom-btn start-btn">Try Again</a>
+      </form> -->
     </div>
     <div class="game-container">
       <div class="game-info-container">
