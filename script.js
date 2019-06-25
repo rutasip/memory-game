@@ -188,8 +188,8 @@ function ready() {
   }
 
   // Start button
-  let startBtn = document.querySelectorAll(".start-btn");
-  startBtn.addEventListener("click", startGame);
+  // let startBtn = document.querySelectorAll(".start-btn");
+  // startBtn.addEventListener("click", startGame);
 
   // Listen to form submit
   document
