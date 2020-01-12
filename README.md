@@ -1,4 +1,4 @@
-## Live deploy: https://rutasip.github.io/memory_game
+## Live deploy: https://rutasip.github.io/memory-game
 
 My code is still a mess as I am trying to get it up and runnning as soon as possible.
 Any feedback is welcome!
